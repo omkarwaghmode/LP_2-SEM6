@@ -1,0 +1,48 @@
+public class calculator {
+    public integer firstNumber { get; set; }
+    public integer secondNumber { get; set; }
+    public integer result { get; set; }
+   
+    public void Addition(){
+        result = firstNumber + secondNumber;
+    }
+    public void Subtraction(){
+        result = firstNumber - secondNumber;
+    }
+    public void Multiplication(){
+        result = firstNumber * secondNumber;
+    }
+    public void Division(){
+        result = firstNumber / secondNumber;
+    }
+   
+
+}
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+
+
+
+<apex:page controller="calculator">
+    <apex:sectionHeader title="calculator" subtitle="basic calculator"/>
+    <apex:form>
+        <apex:pageBlock title="simple calculator">
+            <apex:pageBlockButtons location="bottom">
+            <apex:commandButton value="Addition" action="{!Addition}" reRender="res"/>
+            <apex:commandButton value="Subtraction" action="{!Subtraction}" reRender="res"/>
+            <apex:commandButton value="Multiplication" action="{!Multiplication}" reRender="res"/>
+            <apex:commandButton value="Division" action="{!Division}" reRender="res"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="calculator">
+                <apex:inputText label = "enter first name" html-placeholder="first number" value="{!firstNumber}"/>
+                <apex:inputText label = "enter second name" html-placeholder="second number" value="{!secondNumber}"/>
+                <apex:outputText label="result" value = "{!result}" id="res"/>
+               
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
